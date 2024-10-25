@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../React Website/first_website"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "cafe web"
+	}
+}
