@@ -6,7 +6,7 @@ body {
     height: 110vh;
     margin: 0;
     color: white;
-    background: url('images/about side.jpg') center;
+    background: url('../Images/about side.jpg ') center;
     background-repeat: no-repeat;
     background-size: cover; 
 }
