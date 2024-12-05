@@ -15,6 +15,7 @@ body {
     top: 0;
     left: 0;
     background: transparent;
+    z-index: 1;
 }
 
 .logo img {
@@ -78,14 +79,22 @@ body {
     background-size: cover; 
     width: 100%;
     height: 100vh;
-    padding-bottom: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     margin-bottom: 60px;
-    
-}   
+    isolation: isolate;
+ 
+}  
+.hero::before{
+    content: "";
+    position: absolute;
+    background-color: black;
+    opacity: 0.4;
+    inset: 0;
+    z-index: -1;
+} 
  
 .hero h1 {
     font-size: 4rem;
@@ -114,30 +123,26 @@ body {
     cursor: pointer;
     text-decoration: none;
     margin-left: 20px;
-    overflow: hidden; /* Ensures the sliding effect stays within the button */
-    transition: color 0.3s; /* Transition for text color change */
+    overflow: hidden; 
+    transition: color 0.3s; 
+    isolation: isolate;
 }
 
 .cta-button::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 0;
     height: 100%;
-    background-color:orange ;
-    transition: width 0.3s; /* Transition for sliding effect */
-    z-index: -1; /* Place the pseudo-element behind the text */
+    background-color:snow;
+    transition: width 0.3s; 
+    z-index: -1;
 }
 
 .cta-button:hover::before {
-    width: 100%;
-    
+    width: 100%;   
 }
 
-.cta-button:hover {
-    color: white;
-}
 
 /* menu showcase section */
 
@@ -270,7 +275,7 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px;
+    padding: 3rem;
     font-family: Arial, sans-serif;
     margin-bottom: 100px;
    
@@ -280,7 +285,7 @@ h3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 50%;
   }
   
@@ -329,7 +334,7 @@ h3 {
     width: 100%;
     height: 100%;
     background-color: #ddd;
-    object-fit:fill;
+    object-fit:scale-down;
   }
   
   /*descreption section2 */
@@ -355,21 +360,6 @@ h3 {
     object-fit: cover;
   }
   
-  .text_content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align:start;
-    max-width: 700px;
-  }
-
-  .text_content h1 {
-    font-size: 42px; 
-    margin: 0 0 20px 0;
-    font-weight: bold;
-
-  }
   
   .text_content p {
     font-size: 1.3vw; 
@@ -648,10 +638,6 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100vw;
-    }
-    .text_content h1{
-        font-size:2rem;
     }
     .logo_design_section{
         flex-direction: column;
@@ -659,6 +645,10 @@ footer {
         align-items: center;
         width: 550;
         height: 550;
+    }
+    .text_content h1{
+        width: 100%;
+        font-size:2rem;
     }
     .text_content p{
         font-size: 1rem;
